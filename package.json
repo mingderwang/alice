@@ -1,0 +1,46 @@
+{
+  "name": "parcel-preact-tailwindcss-chrome-extension-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel src/main.html",
+    "clear": "rm -rf dist .cache",
+    "watch": "yarn clear && parcel watch src/{main.html,options.html,background.js} -d dist/src --public-url ./ -t node --bundle-node-modules",
+    "build": "yarn clear && parcel build src/{main.html,options.html,background.js} -d dist/src --public-url ./",
+    "ipfs": "node ./scripts/ipfs.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "chalk": "^4.1.0",
+    "ipfs-http-client": "^49.0.0",
+    "less": "^3.12.2",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-static-files-copy": "^2.6.0",
+    "tailwindcss": "^1.9.6",
+    "typescript": "^4.1.5"
+  },
+  "dependencies": {
+    "@ethersproject/providers": "^5.0.23",
+    "@web3-react/core": "^6.1.9",
+    "preact": "^10.5.5",
+    "react": ">=16.8"
+  },
+  "staticFiles": {
+    "staticPath": [
+      {
+        "staticPath": "static",
+        "staticOutDir": "../static/"
+      },
+      {
+        "staticPath": "manifest.json",
+        "staticOutDir": "../"
+      }
+    ]
+  },
+  "alias": {
+    "react": "preact/compat",
+    "react-dom/test-utils": "preact/test-utils",
+    "react-dom": "preact/compat"
+  }
+}
